@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Reveal Extension",
+    "description": "A Chrome extension that Detect Disinformation in Restaurant Customer Reviews. v1.0 supports in Google Maps only and all the feedbacks are based on Google Maps Custoner Reviews.",
+    "version": "1.0",
+    "icons": {
+      "16": "img/logo.png",
+      "48": "img/logo.png",
+      "128": "img/logo.png"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "host_permissions": [
+      "http://127.0.0.1:5000/"
+    ],
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["popup.js"],
+        "matches": ["http://*/*", "https://*/*"]
+      }
+    ]
+  }

@@ -1,0 +1,83 @@
+body {
+    width: 300px;
+    height: 380px;
+    margin: 0;
+    padding: 10px;
+    background-color: #2a2a2a;
+    font-family: 'Century Gothic', sans-serif;
+    color: rgb(255, 255, 255);
+  }
+
+  .tagline {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #f7941d;
+    text-shadow: 2px 2px 2px rgba(60, 60, 60, 0.5);
+    /* text-transform: uppercase; */
+  }
+
+  img {
+    padding-top: 10px;
+    display: block;
+    margin: auto;
+    width: 127px;
+    height: 55px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
+  }
+
+  .review-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: 'Quicksand', sans-serif;
+
+  }
+
+  .review-textarea {
+    height: 100px;
+    resize: none;
+    font-size: 13px;
+    padding: 5px;
+    border: 1px solid #ffffff3a;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f7941d;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  .submit-button:disabled {
+    cursor: not-allowed;
+  }
+
+  p {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  .similarity-percentage {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    color: #fed401;
+  }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TrueView</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #191818;
+            font-family: 'Century Gothic', sans-serif;
+            color: rgb(255, 255, 255);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            /* margin-bottom: 20px; */
+        }
+
+        h3 {
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Lemon Milk', sans-serif;
+            color: #fed401;
+            text-shadow: 2px 2px 2px rgba(60, 60, 60, 0.5);
+            text-transform: uppercase;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* height: 200px; */
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ffffff;
+            background-color: transparent;
+            color: #fed401;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 10px;
+            font-family: 'Lemon Milk', sans-serif;
+            background-color: #dec824;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .result-real {
+            color: green;
+        }
+
+        .result-fake {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TrueView</h1>
+    <h3>Truth in Every Review, Keep Real</h3>
+    <form method="POST" action="/predict">
+        <label for="text">Review</label>
+        <textarea name="textReview" id="textReview" cols="30" rows="10"></textarea> <br><br>
+        <label for="text">Review Source Page Link</label>
+        <textarea name="textReview" id="textReview" cols="30" rows="10"></textarea> <br><br>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    <p>Prediction: <span id="prediction"></span></p>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('form').on('submit', function (event) {
+            event.preventDefault();
+            var review = $('#textReview').val();
+            $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: { 'textReview': review },
+                success: function (data) {
+                    var prediction = data.prediction;
+                    if (prediction == 0) {
+                        $('#prediction').text('Genuine Review').addClass('result-real').removeClass('result-fake');
+                    } else {
+                        $('#prediction').text('This contains Disinformation').addClass('result-fake').removeClass('result-real');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+  <body>
+    <form action="/predict" method="POST">
+        Review <input type="text" name="reviewtext"><br>
+        Prediction - {{result}} <br>
+        <input type="submit" value="Predict">
+    </form>
+  </body>  
+</html> -->

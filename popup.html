@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TrueView</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com;" /> -->
+  
+</head>
+
+<body>
+  <img src="img/name1.png" alt="Logo">
+  <h3 class="tagline">See Beyond the Review</h3>
+  <form id="review-form">
+    <label class="review-label" for="review-text">Review</label>
+    <textarea class="review-textarea" id="review-text"></textarea><br>
+    <!-- <label for="review-link-text">Review Source Page Link</label>
+    <textarea id="review-link-text"></textarea><br> -->
+    <button class="submit-button" id="submit-button">Check the Review</button>
+  </form>
+  <p id="prediction-result"></p>
+  <p id="similarity-percentage" class="similarity-percentage"></p>
+  <p id="summarized-review"></p>
+  <p id="prediction-summary"></p>
+  <script src="popup.js"></script>
+</body>
+
+</html>
