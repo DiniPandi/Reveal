@@ -28,7 +28,7 @@ def predict():
     reviewText = data.get('textReview')
     url = data.get('url')
 
-    summarizedReview = summary(url, reviewText)
+    summarizedReview = summary(url)
     comparisonSummary, similarityPercentage = comparison(reviewText,summarizedReview)
 
     if reviewText is not None:
@@ -40,7 +40,7 @@ def predict():
     else:
         return jsonify({'error': 'Input text not provided.'})
     
-def summary(url, reviewText):
+def summary(url):
     driver = webdriver.Chrome()
     driver.get(url)
     page_source = driver.page_source
@@ -49,7 +49,6 @@ def summary(url, reviewText):
     driver.quit()
     allReviews = []
     for i in range (0,len(reviews)): allReviews.append(reviews[i].get_text())
-    print(url)
 
     sentences = [sent_tokenize(review) for review in allReviews]
     words = [word_tokenize(review) for review in allReviews]
