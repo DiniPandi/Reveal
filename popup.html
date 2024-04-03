@@ -4,8 +4,6 @@
 <head>
   <title>TrueView</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com;" /> -->
-
 </head>
 
 <body>
@@ -14,8 +12,6 @@
   <form id="review-form">
     <label class="review-label" for="review-text">Review</label>
     <textarea class="review-textarea" id="review-text"></textarea><br>
-    <!-- <label for="review-link-text">Review Source Page Link</label>
-    <textarea id="review-link-text"></textarea><br> -->
     <button class="submit-button" id="submit-button">Check the Review</button>
   </form>
   <p class="description">All the Outputs are based on Google Maps Reviews</p>
@@ -24,7 +20,6 @@
   <p id="similarity-percentage" class="similarity-percentage hidden"></p>
   <p id="summarized-review" class="summarized-review hidden"></p>
   <p id="prediction-summary" class="prediction-summary hidden"></p>
-  <!-- <button id="see-more-button" class="see-more-button hidden">See More</button> -->
 
   <script src="popup.js"></script>
 </body>

@@ -22,20 +22,14 @@ with open('model.pkl', 'rb') as f:
 with open('vector.pkl', 'rb') as f:
     vectorizer = pickle.load(f)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
     reviewText = data.get('textReview')
-    # reviewPageLinkText = data.get('textReviewPageLink')
     url = data.get('url')
 
     summarizedReview = summary(url, reviewText)
     comparisonSummary, similarityPercentage = comparison(reviewText,summarizedReview)
-
 
     if reviewText is not None:
         text_transformed = vectorizer.transform([reviewText])
@@ -48,7 +42,6 @@ def predict():
     
 def summary(url, reviewText):
     driver = webdriver.Chrome()
-    # url = "https://www.google.com/maps/place/Pedlar's+Inn+Cafe+and+Restaurant/@6.0261087,80.2151278,18z/data=!4m8!3m7!1s0x3ae173a6bffed6cb:0x3f1aec125aa705ba!8m2!3d6.026106!4d80.2164153!9m1!1b1!16s%2Fg%2F1tgh5_bb?entry=ttu"
     driver.get(url)
     page_source = driver.page_source
     soup = BeautifulSoup(page_source, 'html.parser')
@@ -92,7 +85,7 @@ def comparison(reviewText,summarizedReview):
     similarity_percentage = int(cosine_sim * 100) 
 
 
-    if cosine_sim < 0.5:
+    if cosine_sim < 0.7:
         # Calculate word frequency for each review
         word_freq_customer = Counter(word_tokenize(customer_review_processed))
         word_freq_summarized = Counter(word_tokenize(summarized_review_processed))
