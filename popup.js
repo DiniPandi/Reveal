@@ -16,10 +16,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
     event.preventDefault();
 
-
     const inputReview = document.getElementById('review-text').value;
-    // const inputReviewPageLink = document.getElementById('review-link-text').value;
-
 
     try {
       submitButton.disabled = true;
